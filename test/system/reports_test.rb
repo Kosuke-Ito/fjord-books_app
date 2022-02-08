@@ -15,16 +15,21 @@ class ReportsTest < ApplicationSystemTestCase
   test '#create' do
     click_on '新規作成'
     fill_in 'タイトル', with: 'テスト'
-    fill_in '内容', with: 'あああ'
+    fill_in '内容', with: '作成したテキスト'
     click_on '登録する'
+
     assert_text '日報が作成されました。'
+    assert_text 'テスト'
+    assert_text '作成したテキスト'
   end
 
   test '#edit' do
     click_on '編集'
-    fill_in '内容', with: 'b'
+    fill_in '内容', with: '編集後のテキスト'
     click_on '更新する'
+
     assert_text '日報が更新されました。'
+    assert_text '編集後のテキスト'
   end
 
   test '#destroy' do

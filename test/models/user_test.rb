@@ -4,11 +4,10 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   test '#name_or_email' do
-    user = User.new(email: 'foo@email.com', name: '')
-    assert_equal 'foo@email.com', user.name_or_email
-
-    user.name = 'Foo'
-    assert_equal 'Foo', user.name_or_email
+    user = users(:bob)
+    assert_equal 'bob@email.com', user.name_or_email
+    user.name = 'bob'
+    assert_equal 'bob', user.name_or_email
   end
 
   test '#follow' do
