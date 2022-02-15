@@ -33,10 +33,12 @@ class ReportsTest < ApplicationSystemTestCase
   end
 
   test '#destroy' do
+    assert_text "hogehoge"
     page.accept_confirm do
       click_on '削除'
     end
 
     assert_text '日報が削除されました。'
+    assert_no_text "hoeghoge"
   end
 end
